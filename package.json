@@ -1,0 +1,51 @@
+{
+  "name": "socket_server",
+  "version": "1.0.0",
+  "description": "Socket.io Implementation",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "dev": "nodemon",
+    "start": "node dist/src/index.js",
+    "build": "rimraf dist/ && tsc --project ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nisargrbhatt/socket-server.git"
+  },
+  "keywords": [
+    "Socket.io",
+    "Node.js",
+    "Typescript"
+  ],
+  "author": "Nisarg Bhatt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nisargrbhatt/socket-server/issues"
+  },
+  "homepage": "https://github.com/nisargrbhatt/socket-server#readme",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^18.0.6",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "helmet": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.6",
+    "morgan": "^1.10.0",
+    "rimraf": "^3.0.2",
+    "socket.io": "^4.5.1",
+    "tsc": "^2.0.4",
+    "typescript": "^4.7.4"
+  }
+}
