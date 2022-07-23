@@ -4,6 +4,6 @@ import { getRoomChats } from "../controllers/chat.controller";
 
 const router = Router();
 
-router.get("getroomchats", auth, getRoomChats);
+router.get("/getroomchats", auth, getRoomChats);
 
 export default router;

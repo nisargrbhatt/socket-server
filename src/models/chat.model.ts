@@ -6,6 +6,7 @@ interface IChat extends Document {
   receiverId: Types.ObjectId | any;
   message: string;
   roomId: Types.ObjectId | any;
+  read: boolean;
   createdAt: number;
   updatedAt: number;
 }
@@ -30,6 +31,11 @@ const chatSchema = new Schema<IChat>(
       type: Schema.Types.ObjectId,
       ref: "Room",
       required: true,
+    },
+    read: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
   {

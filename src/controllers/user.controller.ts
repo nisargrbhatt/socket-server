@@ -99,4 +99,26 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
   });
 };
 
-export { signup, login };
+const users = async (req: Request, res: Response, next: NextFunction) => {
+  let users;
+  try {
+    users = await userService.list();
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
+
+  let mappedUsers = users.map((user) => ({
+    ...user.toJSON(),
+    password: undefined,
+  }));
+
+  return res.status(200).json({
+    message: "Users fetched successfully",
+    users: mappedUsers,
+  });
+};
+
+export { signup, login, users };

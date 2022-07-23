@@ -7,6 +7,26 @@ const roomService = new RoomService();
 const createRoom = async (req: any, res: Response, next: NextFunction) => {
   const { member1, member2 } = req.body;
 
+  let existingRoom;
+  try {
+    existingRoom = await roomService.getByMembersId(member1, member2);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
+
+  if (existingRoom) {
+    return res.status(200).json({
+      message: "Room already exist",
+      data: {
+        room: existingRoom.toJSON(),
+        new: false,
+      },
+    });
+  }
+
   let createdRoom;
   try {
     createdRoom = await roomService.create({
@@ -40,6 +60,7 @@ const createRoom = async (req: any, res: Response, next: NextFunction) => {
     message: "Room created successfully",
     data: {
       room: room?.toJSON(),
+      new: true,
     },
   });
 };

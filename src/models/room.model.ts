@@ -2,11 +2,11 @@ import { Schema, model, Types, Document } from "mongoose";
 
 interface IRoom extends Document {
   _id: Types.ObjectId;
-  // roomId: string;
   member1Id: Types.ObjectId | any;
   member2Id: Types.ObjectId | any;
   createdAt: number;
   updatedAt: number;
+  // roomId: string;
 }
 
 const roomSchema = new Schema<IRoom>(

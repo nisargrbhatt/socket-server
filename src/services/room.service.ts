@@ -17,6 +17,23 @@ export class RoomService {
     return Room.findByIdAndDelete(_id);
   }
 
+  getByMembersId(member1Id: string, member2Id: string) {
+    return Room.findOne({
+      $or: [
+        {
+          member1Id: member1Id,
+          member2Id: member2Id,
+        },
+        {
+          member1Id: member2Id,
+          member2Id: member1Id,
+        },
+      ],
+    })
+      .populate("member1Id")
+      .populate("member2Id");
+  }
+
   getUserRooms(userId: string) {
     return Room.find({
       $or: [

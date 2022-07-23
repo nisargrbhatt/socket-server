@@ -17,6 +17,10 @@ export class ChatService {
     return Chat.findByIdAndDelete(_id);
   }
 
+  update(data: any, _id: string) {
+    return Chat.updateOne({ _id }, data);
+  }
+
   getByRoomId(roomId: string) {
     return Chat.find({
       roomId,
