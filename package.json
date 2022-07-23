@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "dev": "nodemon",
     "start": "node dist/src/index.js",
-    "build": "rimraf dist/ && npx tsc"
+    "build-linux": "rimraf dist/ && tsc"
   },
   "repository": {
     "type": "git",
