@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "dev": "nodemon",
     "start": "node dist/src/index.js",
-    "build": "rimraf dist/ && tsc --project ./"
+    "build": "rimraf dist/ && npx tsc"
   },
   "repository": {
     "type": "git",
@@ -49,6 +49,7 @@
     "typescript": "^4.7.4"
   },
   "engines": {
-    "node": "16.14.0"
+    "node": ">=16.14.0",
+    "npm": ">=8.1.2"
   }
 }
