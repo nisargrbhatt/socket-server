@@ -36,7 +36,7 @@ connect(
 
 app.use(cors());
 app.use(express.json());
-app.use(morgan("dev"));
+app.use(morgan("combined"));
 app.use(
   express.urlencoded({
     extended: true,

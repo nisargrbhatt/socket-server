@@ -26,7 +26,16 @@ const signup = async (req, res, next) => {
             message: "User already registered",
         });
     }
-    const password = (0, bcrypt_1.hashSync)(req.body.password, 10);
+    let password;
+    try {
+        password = (0, bcrypt_1.hashSync)(req.body.password, 10);
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            message: "Internal Server Error",
+        });
+    }
     let registeredUser;
     try {
         registeredUser = await userService.create({

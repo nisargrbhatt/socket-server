@@ -25,7 +25,15 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
     });
   }
 
-  const password = hashSync(req.body.password, 10);
+  let password;
+  try {
+    password = hashSync(req.body.password, 10);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
 
   let registeredUser;
   try {
