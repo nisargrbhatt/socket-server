@@ -126,6 +126,12 @@ io.on(
   }
 );
 
+app.use("*", (req, res, next) => {
+  return res.status(400).json({
+    message: "No route found",
+  });
+});
+
 const port: number = Number(process.env.PORT) || 3000;
 
 httpServer.listen(port, function () {
